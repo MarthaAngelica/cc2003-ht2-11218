@@ -3,29 +3,29 @@
  * and open the template in the editor.
  */
 package Pila;
-import java.util.ArrayList;
+import java.util.Vector;
 /**
  *
  * @author Luis Valdeavellano, 11218
  */
-public class Pila1 implements Pila {
-    private ArrayList<Integer> pila;
+public class Pila1<T> implements Pila<T> {
+    private Vector<T> pila;
     
-    @Override
-    /**
-     * Agrega un número a la pila
-     */
-    public void push(int numero){
-        Integer a = numero;
-        pila.add(a);
+    public Pila1(){
+        pila = new Vector();
     }
     
     @Override
+    public void push(T elem) {
+        pila.add(elem);
+    }
+    
     /**
      * Devuelve el ultimo número ingresado y lo borra de la pila
      */
-    public int pop(){
-        Integer a = getLast();
+    @Override
+    public T pop(){
+        T a = getLast();
         deleteLast();
         return a;
     }
@@ -34,7 +34,8 @@ public class Pila1 implements Pila {
      * Revisa si la pila está vacía
      * @return true si está vacía y false si no lo está
      */
-    private boolean isEmpty(){
+    @Override
+    public boolean isEmpty(){
         return pila.isEmpty();
     }
     
@@ -42,8 +43,8 @@ public class Pila1 implements Pila {
      * Devuelve el último numero ingresado
      * @return último numero ingresado en la pila
      */
-    private int getLast(){
-        Integer a = pila.get(pila.size()-1);
+    private T getLast(){
+        T a = pila.get(pila.size()-1);
         return a;
     }
     
