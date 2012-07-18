@@ -8,15 +8,26 @@ package Pila;
  * 
  * @author Luis Valdeavellano, 11218
  */
-public interface Pila {
+public interface Pila<T> {
     /**
-     * 
-     * @param numero que se quiere agregar a la pila
+     * Agrega un elemento a la pila
+     * Precondición: la pila existe
+     * Postcondición: la pila tiene un elemento más
+     * @param elem elemento que se quiere agregar a la pila
      */
-    public void push(int numero);
+    public void push(T elem);
     /**
-     * 
-     * @return ultimo número agregado a la pila
+     * Devuelve y elimina el último elemento agregado a la pila
+     * Precondición: la pila existe y tiene almenos un valor ingresado
+     * Postcondición: la pila tiene un elemento menos
+     * @return ultimo elemento agregado a la pila
      */
-    public int pop();
+    public T pop();
+    /**
+     * Indica si la pila esta vacía (si no tiene elementos)
+     * Precondición: la pila existe
+     * Postcondición: 
+     * @return si esta vacía o no la pila
+     */
+    public boolean isEmpty();
 }
